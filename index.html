@@ -1,3 +1,179 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>GLA-Grad</title>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+      <!-- <link rel="shortcut icon" href="../../images/test.png"> -->
+      <script>
+         function play(path) {{
+           var player = document.getElementById('player');
+           player.src = path;
+           player.play();
+         }}
+      </script>
+   </head>
+
+   <body>
+      <article>
+         <div class="main">
             <header>
-               <h1>Title: GLA-GRAD: A GRIFFIN-LIM EXTENDED WAVEFORM GENERATION DIFFUSION MODEL
+               <h1>Griffin-Lim based waveform generation diffusion model
+                  [<a href="pdf.link">pdf</a>]</h1>
             </header>
+
+<!-- Authors -->
+            <p>
+               <!-- <a href="https://">Haocheng Liu</a>, -->
+               <a>Haocheng Liu</a>,
+               <a>Teysir Baoueb</a>,
+               <a>Mathieu Fontaine</a>, 
+               <a>Jonathan Le Roux</a>,
+               <a>Gaël Richard</a>
+               <!-- <b>, ICASSP 2024</b> -->
+            </p>
+
+            <p><b>Abstract:</b> 
+               Diffusion models are receiving a growing interest for a variety of signal generation tasks 
+               such as speech or music synthesis. WaveGrad, for example, is a successful diffusion model 
+               that conditionally uses the mel spectrogram to guide a diffusion process for the generation 
+               of high-fidelity audio. However, such models face important challenges concerning the noise 
+               diffusion process for training and inference, and they have difficulty generating high-quality 
+               speech for speakers that were not seen during training. With the aim of minimizing the conditioning 
+               error and increasing the efficiency of the noise diffusion process, we propose in this paper a new scheme 
+               called GLA-Grad, which consists in introducing a phase recovery algorithm such as the Griffin-Lim algorithm 
+               (GLA) at each step of the regular diffusion process. Furthermore, it can be directly applied to an 
+               already-trained waveform generation model, without additional training or fine-tuning. We show that 
+               our algorithm outperforms state-of-the-art diffusion models for speech generation, especially when 
+               generating speech for a previously unseen target speaker.
+            </p>
+
+            <h3>
+               Illustration of proposed framework:
+            </h3>
+
+            <br><br>
+            <img src="imgs/GLA-Grad.svg" width="500px" class="center">
+
+            <h3>
+               Waveform generation:
+            </h3>
+
+            <p>
+               <b>Remark:</b> <span class="text"> We conducted experiments under three setups, training WaveGrad
+                  and SpecGrad and estimating related methods in different scenarios. </span>
+            </p>
+
+            <table>
+               <tbody>
+                  <tr>
+                     <td nowrap> Experiments </td>
+                     <td>
+                        <span class="text">LJ Speech → LJ Speech</span>
+                        <br>
+                        <span class="sentence">Utterance: Experiment 1</span>
+                     </td>
+                     <td><span class="text">LJ Speech → VCTK</span>
+                        <br>
+                        <span class="sentence">Utterance: Experiment 2</span>
+                     </td>
+                     <td><span class="text">VCTK → VCTK</span>
+                        <br>
+                        <span class="sentence">Utterance: Experiment 3</span>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td nowrap>Ground Truth:</td>
+                     <td>
+                        <audio controls>
+                           <source src="wavs/GT_1.wav">
+                        </audio>
+                     </td>
+                     <td>
+                        <audio controls>
+                           <source src="wavs/GT_2.wav">
+                        </audio>
+                     </td>
+                     <td>
+                        <audio controls>
+                           <source src="wavs/GT_3.wav">
+                        </audio>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td nowrap>GLA-Grad:</td>
+                     <td>
+                        <audio controls>
+                           <source src="wavs/GLA-Grad_1.wav">
+                        </audio>
+                     </td>
+                     <td>
+                        <audio controls>
+                           <source src="wavs/GLA-Grad_2.wav">
+                        </audio>
+                     </td>
+                     <td>
+                        <audio controls>
+                           <source src="wavs/GLA-Grad_3.wav">
+                        </audio>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td nowrap>WaveGrad:
+                        <td>
+                           <audio controls>
+                              <source src="wavs/WaveGrad_1.wav">
+                           </audio>
+                        </td>
+                        <td>
+                           <audio controls>
+                              <source src="wavs/WaveGrad_2.wav">
+                           </audio>
+                        </td>
+                        <td>
+                           <audio controls>
+                              <source src="wavs/WaveGrad_3.wav">
+                           </audio>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td nowrap>WaveGrad-50:
+                           <td>
+                              <audio controls>
+                                 <source src="wavs/WaveGrad-50_1.wav">
+                              </audio>
+                           </td>
+                           <td>
+                              <audio controls>
+                                 <source src="wavs/WaveGrad-50_2.wav">
+                              </audio>
+                           </td>
+                           <td>
+                              <audio controls>
+                                 <source src="wavs/WaveGrad-50_3.wav">
+                              </audio>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td nowrap>SpecGrad:
+                              <td>
+                                 <audio controls>
+                                    <source src="wavs/SpecGrad_1.wav">
+                                 </audio>
+                              </td>
+                              <td>
+                                 <audio controls>
+                                    <source src="wavs/SpecGrad_2.wav">
+                                 </audio>
+                              </td>
+                              <td>
+                                 <audio controls>
+                                    <source src="wavs/SpecGrad_3.wav">
+                                 </audio>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+               </article>
+            </body>
+         </html>

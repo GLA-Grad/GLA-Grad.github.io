@@ -1,0 +1,42 @@
+audio {
+  width: 260px;
+  height: 35px;
+}
+
+body {
+  font-family: Helvatica, Arial, sans-serif;
+  margin: 0;
+  background-color: #ddd;
+}
+
+#title {
+  margin: 0 5% 0 0;
+  padding: 0 5% 2% 4%;
+}
+
+.main {
+  max-width: 950px;
+  margin: auto;
+  padding: 2% 5% 5% 5%;
+  border-left: 0px solid #999;
+  border-right: 0px solid #999;
+  border-bottom: 0px dashed #999;
+  background-color: #fff;
+}
+
+h3 {
+  margin-top: 30px;
+  margin-bottom: 2px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sentence {
+  font-style: italic;
+  color: #666666;
+  font-size: 9pt;
+}
