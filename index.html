@@ -1,4 +1,4 @@
-<html>
+﻿<html>
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
       <title>GLA-Grad</title>
@@ -85,17 +85,17 @@
                      <td nowrap>Ground Truth:</td>
                      <td>
                         <audio controls>
-                           <source src="wavs/GT_1.wav">
+                           <source src="wavs/GroundTruth/E1.wav">
                         </audio>
                      </td>
                      <td>
                         <audio controls>
-                           <source src="wavs/GT_2.wav">
+                           <source src="wavs/GroundTruth/E2.wav">
                         </audio>
                      </td>
                      <td>
                         <audio controls>
-                           <source src="wavs/GT_3.wav">
+                           <source src="wavs/GroundTruth/E3.wav">
                         </audio>
                      </td>
                   </tr>
@@ -103,17 +103,17 @@
                      <td nowrap>GLA-Grad:</td>
                      <td>
                         <audio controls>
-                           <source src="wavs/GLA-Grad_1.wav">
+                           <source src="wavs/GLA-Grad/E1.wav">
                         </audio>
                      </td>
                      <td>
                         <audio controls>
-                           <source src="wavs/GLA-Grad_2.wav">
+                           <source src="wavs/GLA-Grad/E2.wav">
                         </audio>
                      </td>
                      <td>
                         <audio controls>
-                           <source src="wavs/GLA-Grad_3.wav">
+                           <source src="wavs/GLA-Grad/E3.wav">
                         </audio>
                      </td>
                   </tr>
@@ -121,17 +121,17 @@
                      <td nowrap>WaveGrad:
                         <td>
                            <audio controls>
-                              <source src="wavs/WaveGrad_1.wav">
+                              <source src="wavs/WaveGrad/E1.wav">
                            </audio>
                         </td>
                         <td>
                            <audio controls>
-                              <source src="wavs/WaveGrad_2.wav">
+                              <source src="wavs/WaveGrad/E2.wav">
                            </audio>
                         </td>
                         <td>
                            <audio controls>
-                              <source src="wavs/WaveGrad_3.wav">
+                              <source src="wavs/WaveGrad/E3.wav">
                            </audio>
                         </td>
                      </tr>
@@ -139,17 +139,17 @@
                         <td nowrap>WaveGrad-50:
                            <td>
                               <audio controls>
-                                 <source src="wavs/WaveGrad-50_1.wav">
+                                 <source src="wavs/WaveGrad-50/E1.wav">
                               </audio>
                            </td>
                            <td>
                               <audio controls>
-                                 <source src="wavs/WaveGrad-50_2.wav">
+                                 <source src="wavs/WaveGrad-50/E2.wav">
                               </audio>
                            </td>
                            <td>
                               <audio controls>
-                                 <source src="wavs/WaveGrad-50_3.wav">
+                                 <source src="wavs/WaveGrad-50/E3.wav">
                               </audio>
                            </td>
                         </tr>
@@ -157,22 +157,28 @@
                            <td nowrap>SpecGrad:
                               <td>
                                  <audio controls>
-                                    <source src="wavs/SpecGrad_1.wav">
+                                    <source src="wavs/SpecGrad/E1.wav">
                                  </audio>
                               </td>
                               <td>
                                  <audio controls>
-                                    <source src="wavs/SpecGrad_2.wav">
+                                    <source src="wavs/SpecGrad/E2.wav">
                                  </audio>
                               </td>
                               <td>
                                  <audio controls>
-                                    <source src="wavs/SpecGrad_3.wav">
+                                    <source src="wavs/SpecGrad/E3.wav">
                                  </audio>
                               </td>
                            </tr>
                         </tbody>
                      </table>
+                     <br>
+                     <p>
+                       <span class="text">
+                        GLA-Grad has proven to be effective in various scenarios, showcasing its potential in unseen speaker tasks. In addition, through our experiments, we have also observed that a moderate number of GLA steps can lead to better generalization capabilities across domains. This indicates that the number of GLA steps significantly impacts model performance: too few steps fail to fully harness the model's cross-domain inference potential, while too many steps substantially degrade the generation quality (GLA performs significantly worse in reconstruction tasks than deep learning models), which may all lead to unstable generation quality. This phenomenon suggests that balancing the number of GLA steps to optimize learning outcomes is an issue worthy of in-depth investigation. We believe future research should focus on this area, combining empirical evidence with theoretical analysis to meticulously explore the optimization paths for the GLA-Grad method, thus ensuring inference effectiveness while enhancing the quality of model generation.
+                       </span>
+                     </p>
                   </div>
                </article>
             </body>
