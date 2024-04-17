@@ -1,0 +1,238 @@
+﻿<html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <title>GLA-Grad</title>
+   <link rel="stylesheet" type="text/css" href="style.css" />
+   <!-- <link rel="shortcut icon" href="../../images/test.png"> -->
+   <script>
+      function play(path) {
+         {
+            var player = document.getElementById('player');
+            player.src = path;
+            player.play();
+         }
+      }
+   </script>
+</head>
+
+<body>
+   <article>
+      <div class="main">
+         <header>
+            <h1>GLA-Grad: A Griffin-Lim Extended Waveform Generation Diffusion Model
+               <!-- [<a href="pdf.link">pdf</a>]</h1> -->
+         </header>
+
+         <!-- Authors -->
+         <p>
+            <!-- <a href="https://">Haocheng Liu</a>, -->
+            <a>Haocheng Liu</a>,
+            <a>Teysir Baoueb</a>,
+            <a>Mathieu Fontaine</a>,
+            <a>Jonathan Le Roux</a>,
+            <a>Gaël Richard</a>
+            <!-- <b>, ICASSP 2024</b> -->
+         </p>
+
+         <p><b>Abstract:</b>
+            Diffusion models are receiving a growing interest for a variety of signal generation tasks
+            such as speech or music synthesis. WaveGrad, for example, is a successful diffusion model
+            that conditionally uses the mel spectrogram to guide a diffusion process for the generation
+            of high-fidelity audio. However, such models face important challenges concerning the noise
+            diffusion process for training and inference, and they have difficulty generating high-quality
+            speech for speakers that were not seen during training. With the aim of minimizing the conditioning
+            error and increasing the efficiency of the noise diffusion process, we propose in this paper a new scheme
+            called GLA-Grad, which consists in introducing a phase recovery algorithm such as the Griffin-Lim algorithm
+            (GLA) at each step of the regular diffusion process. Furthermore, it can be directly applied to an
+            already-trained waveform generation model, without additional training or fine-tuning. We show that
+            our algorithm outperforms state-of-the-art diffusion models for speech generation, especially when
+            generating speech for a previously unseen target speaker.
+         </p>
+
+         <h3>
+            Illustration of proposed framework:
+         </h3>
+
+         <br><br>
+         <img src="imgs/GLA-Grad.svg" width="500px" class="center">
+
+         <h3>
+            Waveform generation:
+         </h3>
+
+         <p>
+            <b>Remark:</b> <span class="text"> The formulas mentioned in the figure could be found in the article.
+                We conducted experiments under three setups (LJ→LJ, LJ→VCTK, VCTK→VCTK), training and evaluating in different scenarios. 
+                This demonstration page presents the inference results of the proposed model with noise schedule WG-6 and searched schedule for WaveGrad and GLA-Grad under these setups. </span>
+         </p>
+
+         <table>
+            <tbody>
+               <tr>
+                  <td nowrap> Experiments </td>
+                  <td>
+                     <span class="text">LJ Speech → LJ Speech</span>
+                     <br>
+                     <span class="sentence">Utterance: Experiment 1</span>
+                  </td>
+                  <td><span class="text">LJ Speech → VCTK</span>
+                     <br>
+                     <span class="sentence">Utterance: Experiment 2</span>
+                  </td>
+                  <td><span class="text">VCTK → VCTK</span>
+                     <br>
+                     <span class="sentence">Utterance: Experiment 3</span>
+                  </td>
+               </tr>
+               <tr>
+                  <td nowrap>Ground Truth:</td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GroundTruth/E1.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GroundTruth/E2.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GroundTruth/E3.wav">
+                     </audio>
+                  </td>
+               </tr>
+               <tr>
+                  <td nowrap>GLA-Grad:</td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GLA-Grad/E1.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GLA-Grad/E2.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GLA-Grad/E3.wav">
+                     </audio>
+                  </td>
+               </tr>
+               <tr>
+                  <td nowrap>WaveGrad:
+                  <td>
+                     <audio controls>
+                        <source src="wavs/WaveGrad/E1.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/WaveGrad/E2.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/WaveGrad/E3.wav">
+                     </audio>
+                  </td>
+               </tr>
+
+               <tr>
+                  <td colspan="2" style="height: 20px;"></td> <!-- 使用 colspan 属性扩展单元格跨所有列，并设定高度 -->
+               </tr>
+
+               <tr>
+                  <td nowrap> Experiments </td>
+                  <td>
+                     <span class="text">LJ Speech → LJ Speech</span>
+                     <br>
+                     <span class="sentence">Utterance: Experiment 1</span>
+                  </td>
+                  <td><span class="text">LJ Speech → VCTK</span>
+                     <br>
+                     <span class="sentence">Utterance: Experiment 2</span>
+                  </td>
+                  <td><span class="text">VCTK → VCTK</span>
+                     <br>
+                     <span class="sentence">Utterance: Experiment 3</span>
+                  </td>
+               </tr>
+               <tr>
+                  <td nowrap>Ground Truth:</td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GroundTruth/E1_1.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GroundTruth/E2_1.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GroundTruth/E3_1.wav">
+                     </audio>
+                  </td>
+               </tr>
+               <tr>
+                  <td nowrap>GLA-Grad:</td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GLA-Grad/E1_1.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GLA-Grad/E2_1.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/GLA-Grad/E3_1.wav">
+                     </audio>
+                  </td>
+               </tr>
+               <tr>
+                  <td nowrap>WaveGrad:
+                  <td>
+                     <audio controls>
+                        <source src="wavs/WaveGrad/E1_1.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/WaveGrad/E2_1.wav">
+                     </audio>
+                  </td>
+                  <td>
+                     <audio controls>
+                        <source src="wavs/WaveGrad/E3_1.wav">
+                     </audio>
+                  </td>
+               </tr>
+
+            </tbody>
+         </table>
+         <br>
+         <p>
+            <span class="text">
+               Although GLA-Grad is not as good as wavegrad with optimal schedule WG-6 under single speaker scenario LJ→LJ, 
+               it shows robustness and effectiveness with different schedules and in various unseen speakers tasks. 
+               In addition, through our experiments, we have also observed that a moderate number of GLA steps
+               can lead to better generalization capabilities across domains. This indicates that the number of GLA
+               steps significantly impacts model performance: too few steps fail to fully harness the model's
+               cross-domain inference potential, while too many steps substantially degrade the generation quality (GLA
+               performs significantly worse in reconstruction tasks than deep learning models), which may all lead to
+               unstable generation quality. This phenomenon suggests that balancing the number of GLA steps to optimize
+               inferencing outcomes is an issue worthy of in-depth investigation.
+            </span>
+         </p>
+      </div>
+   </article>
+</body>
+
+</html>
